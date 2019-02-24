@@ -7,7 +7,7 @@ ENV PYTHON_VER Python-3.7.2
 
 # INSTALL BASE DEPENDENCIES
 RUN yum update  -y && \
-    yum install -y git wget gcc make
+    yum install -y git wget gcc make python-gzipstream
 
 # INSTALL PYTHON
 RUN wget -q   ${PYTHON_TGZ} && \
@@ -19,15 +19,6 @@ RUN wget -q   ${PYTHON_TGZ} && \
     cd ..        && \
     rm -rf ${PYTHON_VER}*
 
-# DOWNLOAD AND INSTALL EPEL
-RUN wget ${EPEL_RPM} && \
-    yum install -y ${EPEL_SHO} ; \
-    rm ${EPEL_SHO}
-
-## INSTALL PIP
-#RUN yum update && \
-#    yum install -y python-pip
-#
 ## PIP INSTALL
 #RUN pip install --upgrade pip && \
 #    pip install jupyter jupyterthemes ansible-kernel
