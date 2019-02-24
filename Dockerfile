@@ -8,7 +8,7 @@ RUN yum update  -y && \
 
 # DOWNLOAD AND INSTALL EPEL
 RUN wget ${EPEL_RPM} && \
-    rm   ${EPEL_RPM##*/}
+    yes | rm ${EPEL_RPM##*/}
 
 RUN yum install -y ./epel-release-latest-7.noarch.rpm && \
     rm ./epel-release-latest-7.noarch.rpm
