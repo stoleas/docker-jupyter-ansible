@@ -13,7 +13,7 @@ RUN yum update  -y && \
 RUN wget -q   ${PYTHON_TGZ} && \
     tar  -xzf ${PYTHON_VER}.tgz && \
     cd        ${PYTHON_VER} && \
-    ./configure  && \
+    ./configure --with-zlib-dir=/usr/local/lib && \
     make         && \
     make install && \
     cd ..        && \
