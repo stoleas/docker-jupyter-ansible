@@ -8,8 +8,8 @@ RUN yum update  -y && \
     yum install -y git wget gcc tar
 
 # INSTALL PYTHON
-RUN wget ${PYTHON_TGZ} && \
-    tar -xz ${PYTHON_TGZ%%*/}
+RUN wget -q ${PYTHON_TGZ} && \
+    tar  -xzf ${PYTHON_TGZ%%*/}
 
 
 # DOWNLOAD AND INSTALL EPEL
