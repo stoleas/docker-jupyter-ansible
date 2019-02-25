@@ -15,7 +15,8 @@ RUN yum update  -y && \
         zlib \
         zlib-devel \
         libffi-devel \
-        openssl
+        openssl \
+        openssl-devel
 
 # INSTALL PYTHON
 RUN wget -q   ${PYTHON_TGZ} && \
