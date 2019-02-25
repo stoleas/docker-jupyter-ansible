@@ -7,7 +7,7 @@ ENV PYTHON_VER Python-3.7.2
 
 # INSTALL BASE DEPENDENCIES
 RUN yum update  -y && \
-    yum install -y git wget gcc make zlib zlib-devel
+    yum install -y git wget gcc make zlib zlib-devel libffi-devel
 
 # INSTALL PYTHON
 RUN wget -q   ${PYTHON_TGZ} && \
