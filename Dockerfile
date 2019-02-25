@@ -22,16 +22,6 @@ RUN yum update  -y && \
         openssl       \
         openssl-devel
 
-# INSTALL PYTHON
-RUN wget -q   ${PYTHON_TGZ}     && \
-    tar  -xzf ${PYTHON_VER}.tgz && \
-    cd        ${PYTHON_VER}     && \
-    ./configure --with-zlib-dir=/usr/local/lib && \
-    make         && \
-    make install && \
-    cd ..        && \
-    rm -rf ${PYTHON_VER}*
-
 # INSTALL SQLITE3
 RUN wget -q      ${SQLIT_TGZ}        && \
     tar -xvzf    ${SQLIT_VER}.tar.gz && \
@@ -41,6 +31,16 @@ RUN wget -q      ${SQLIT_TGZ}        && \
     make install && \
     cd ..        && \
     rm -rf ${SQLIT_VER}
+
+# INSTALL PYTHON
+RUN wget -q   ${PYTHON_TGZ}     && \
+    tar  -xzf ${PYTHON_VER}.tgz && \
+    cd        ${PYTHON_VER}     && \
+    ./configure --with-zlib-dir=/usr/local/lib && \
+    make         && \
+    make install && \
+    cd ..        && \
+    rm -rf ${PYTHON_VER}*
 
 # PIP INSTALL
 RUN pip3 install --trusted-host pypi.org --upgrade pip && \
