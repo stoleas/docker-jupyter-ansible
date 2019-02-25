@@ -15,6 +15,10 @@ ENV PYTHON_VER Python-3.7.2
 ENV SQLIT_TGZ  https://sqlite.org/2019/sqlite-autoconf-3270100.tar.gz
 ENV SQLIT_VER  sqlite-autoconf-3270100
 
+# THIS DETERMINES YOUR THEME POSSIBLE OPTIONS ARE:
+# onedork | grade3 | oceans16 | chesterish | monokai | solarizedl | solarizedd
+ENV JUPY_THEME  monkai
+
 # OPEN PORT 8888 FOR LOCAL WEBAPP
 EXPOSE 8888
 
