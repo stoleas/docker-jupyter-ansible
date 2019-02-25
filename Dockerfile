@@ -1,5 +1,5 @@
 # YOU CAN RUN THIS IMAGE WITH THE BELOW COMMAND
-# docker run  --expose 9999 -p 9999:8888 ${IMAGE_ID}
+# docker run  --expose ${PORT_TO_LISTEN_ON} -p ${PORT_TO_LISTEN_ON}:8888 docker-jupyter-ansible:latest
 
 # YOU CAN DOCKER BUILD THIS IMAGE IF YOU WANT TO MODIFY
 # WITH THE BELOW COMMAND
