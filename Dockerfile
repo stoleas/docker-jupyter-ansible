@@ -33,9 +33,9 @@ RUN wget -q   ${PYTHON_TGZ}     && \
     rm -rf ${PYTHON_VER}*
 
 # INSTALL SQLITE3
-RUN wget -q   ${SQLIT_TGZ}        && \
-    tar -xvzf ${SQLIT_VER}.tar.gz && \
-    cd           ${SQLIT_VER}     && \
+RUN wget -q      ${SQLIT_TGZ}        && \
+    tar -xvzf    ${SQLIT_VER}.tar.gz && \
+    cd           ${SQLIT_VER}        && \
     ./configure  && \
     make         && \
     make install && \
