@@ -19,8 +19,8 @@ RUN wget -q   ${PYTHON_TGZ} && \
     cd ..        && \
     rm -rf ${PYTHON_VER}*
 
-## PIP INSTALL
-#RUN pip install --upgrade pip && \
-#    pip install jupyter jupyterthemes ansible-kernel
-#
+# PIP INSTALL
+RUN pip install --upgrade pip && \
+    pip install jupyter jupyterthemes ansible-kernel
+
 #RUN adduser jupyter
