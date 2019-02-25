@@ -52,6 +52,12 @@ RUN pip3 install --trusted-host pypi.org --upgrade pip && \
 
 # SETUP JUPYTER
 RUN jt -t monokai
+RUN adduser jupyter  && \
+    mkdir   /jupyter && \
+    chown jupyter:jupyter /jupyter
 
-CMD jupyter-notebook --ip=0.0.0.0
-#RUN adduser jupyter
+USER jupyter
+
+CMD cd /jupyter && \
+    jupyter-notebook --ip=0.0.0.0
+
