@@ -1,5 +1,5 @@
 # Introduction
-This is a Dockerfile for building a container image containing Ansible kernel, Jupyter, and JupyterThemes. You should have a container platform and docker installed.
+This is a Dockerfile for building a container image containing [Ansible kernel](https://github.com/ansible/ansible-jupyter-kernel), [Jupyter](https://jupyter.org/), and [JupyterThemes](https://github.com/dunovank/jupyter-themes). You should have a container platform and docker installed.
 
 # Installation Instructions
 ## Getting from DockerHub
