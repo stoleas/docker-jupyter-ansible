@@ -74,6 +74,5 @@ USER jupyter
 
 # SETUP JUPYTER RUNTIME
 CMD cd /jupyter && \
-    jt -t ${JUPY_THEME} && \
     jupyter-notebook --ip=0.0.0.0
 
