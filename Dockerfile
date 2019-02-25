@@ -37,7 +37,7 @@ RUN pip3 install --trusted-host pypi.org --upgrade pip && \
         jupyter \
         jupyterthemes \
         ansible-kernel \
-        pysqlite2
+        pysqlite
 
 # SETUP JUPYTER
 RUN jt -t monokai
