@@ -23,17 +23,18 @@ ENV SQLIT_VER  sqlite-autoconf-3270100
 EXPOSE 8888
 
 # INSTALL BASE DEPENDENCIES
-RUN yum update  -y && \
-    yum install -y    \
-        git           \
-        wget          \
-        gcc           \
-        make          \
-        zlib          \
-        zlib-devel    \
-        libffi-devel  \
-        openssl       \
-        openssl-devel
+RUN yum update  -y &&    \
+    yum install -y       \
+        git              \
+        wget             \
+        gcc              \
+        make             \
+        zlib             \
+        zlib-devel       \
+        libffi-devel     \
+        openssl          \
+        openssl-devel && \
+    yum clean all
 
 # INSTALL SQLITE3
 RUN wget -q      ${SQLIT_TGZ}        && \
