@@ -28,7 +28,7 @@ RUN wget -q   ${PYTHON_TGZ} && \
     rm -rf ${PYTHON_VER}*
 
 # PIP INSTALL
-RUN pip3 install --upgrade pip && \
-    pip3 install jupyter jupyterthemes ansible-kernel
+RUN pip3 install --trusted-host pypi.org --upgrade pip && \
+    pip3 install --trusted-host pypi.org jupyter jupyterthemes ansible-kernel
 
 #RUN adduser jupyter
