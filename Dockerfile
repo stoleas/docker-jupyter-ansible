@@ -57,12 +57,12 @@ RUN pip3 install --trusted-host pypi.org --upgrade pip && \
     pip3 install --trusted-host \
         pypi.org       \
         jupyter        \
+        jupyterthemes  \
         ansible-kernel
 
 # SETUP JUPYTER
-RUN adduser jupyter         && \
-    mkdir   /jupyter        && \
-    rm      /tmp/yacctab.py && \
+RUN adduser jupyter       && \
+    mkdir   /jupyter      && \
     chown   jupyter:jupyter /jupyter
 
 # SETUP JUPYTER USER
@@ -70,5 +70,6 @@ USER jupyter
 
 # SETUP JUPYTER RUNTIME
 CMD cd /jupyter && \
+    jt -t ${JUPY_THEME} && \
     jupyter-notebook --ip=0.0.0.0
 
