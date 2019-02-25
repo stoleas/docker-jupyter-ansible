@@ -27,3 +27,9 @@ docker run  --restart always -d --expose 8888 -p 8888:8888 ${IMAGE_ID}
 
 ## Getting the Jupyter URL hash
 To list all running containers you can run `docker ps -a` and get the container ID and run `docker logs ${CONTAINER_ID}`.
+
+# Changing Themes
+Once you have started your container and have accessed it via the web UI you can open a new terminal within jupyter and run `jupyter -t ${THEME_NAME}`. For list of all themes look at [JupyterThemes](https://github.com/dunovank/jupyter-themes).
+
+# Recommendations
+It is recommended to utilize the installed git to save any work you do in a seperate git repository.
