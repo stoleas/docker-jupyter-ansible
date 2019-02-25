@@ -11,21 +11,21 @@ EXPOSE 8888
 
 # INSTALL BASE DEPENDENCIES
 RUN yum update  -y && \
-    yum install -y \
-        git \
-        wget \
-        gcc \
-        make \
-        zlib \
-        zlib-devel \
-        libffi-devel \
-        openssl \
+    yum install -y    \
+        git           \
+        wget          \
+        gcc           \
+        make          \
+        zlib          \
+        zlib-devel    \
+        libffi-devel  \
+        openssl       \
         openssl-devel
 
 # INSTALL PYTHON
-RUN wget -q   ${PYTHON_TGZ} && \
+RUN wget -q   ${PYTHON_TGZ}     && \
     tar  -xzf ${PYTHON_VER}.tgz && \
-    cd        ${PYTHON_VER} && \
+    cd        ${PYTHON_VER}     && \
     ./configure --with-zlib-dir=/usr/local/lib && \
     make         && \
     make install && \
@@ -33,10 +33,9 @@ RUN wget -q   ${PYTHON_TGZ} && \
     rm -rf ${PYTHON_VER}*
 
 # INSTALL SQLITE3
-RUN cd /tmp \
-    && wget -q   ${SQLIT_TGZ} && \
+RUN wget -q   ${SQLIT_TGZ}        && \
     && tar -xvzf ${SQLIT_VER}.tar.gz && \
-    cd           ${SQLIT_VER} && \
+    cd           ${SQLIT_VER}        && \
     ./configure  && \
     make         && \
     make install && \
@@ -46,9 +45,9 @@ RUN cd /tmp \
 # PIP INSTALL
 RUN pip3 install --trusted-host pypi.org --upgrade pip && \
     pip3 install --trusted-host \
-        pypi.org \
-        jupyter \
-        jupyterthemes \
+        pypi.org       \
+        jupyter        \
+        jupyterthemes  \
         ansible-kernel \
         pysqlite
 
