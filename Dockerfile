@@ -5,6 +5,8 @@ ENV EPEL_SHO   epel-release-latest-7.noarch.rpm
 ENV PYTHON_TGZ https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz
 ENV PYTHON_VER Python-3.7.2
 
+EXPOSE 8888
+
 # INSTALL BASE DEPENDENCIES
 RUN yum update  -y && \
     yum install -y \
@@ -32,4 +34,8 @@ RUN wget -q   ${PYTHON_TGZ} && \
 RUN pip3 install --trusted-host pypi.org --upgrade pip && \
     pip3 install --trusted-host pypi.org jupyter jupyterthemes ansible-kernel
 
+# SETUP JUPYTER
+RUN jt -t monokai
+
+CMD jupyter-notebook --ip=0.0.0.0
 #RUN adduser jupyter
