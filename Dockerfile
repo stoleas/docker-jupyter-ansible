@@ -7,10 +7,6 @@
 
 FROM centos:centos7.6.1810
 
-# THIS DETERMINES YOUR THEME POSSIBLE OPTIONS ARE:
-# onedork | grade3 | oceans16 | chesterish | monokai | solarizedl | solarizedd
-ENV JUPY_THEME  monkai
-
 # OTHER VARS
 ENV EPEL_RPM   https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 ENV EPEL_SHO   epel-release-latest-7.noarch.rpm
@@ -61,13 +57,12 @@ RUN pip3 install --trusted-host pypi.org --upgrade pip && \
     pip3 install --trusted-host \
         pypi.org       \
         jupyter        \
-        jupyterthemes  \
         ansible-kernel
 
 # SETUP JUPYTER
-RUN jt -t   ${JUPY_THEME} && \
-    adduser jupyter       && \
-    mkdir   /jupyter      && \
+RUN adduser jupyter         && \
+    mkdir   /jupyter        && \
+    rm      /tmp/yacctab.py && \
     chown   jupyter:jupyter /jupyter
 
 # SETUP JUPYTER USER
