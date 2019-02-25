@@ -4,6 +4,8 @@ ENV EPEL_RPM   https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarc
 ENV EPEL_SHO   epel-release-latest-7.noarch.rpm
 ENV PYTHON_TGZ https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz
 ENV PYTHON_VER Python-3.7.2
+ENV SQLIT_TGZ  https://sqlite.org/2019/sqlite-autoconf-3270100.tar.gz
+ENV SQLIT_VER  sqlite-autoconf-3270100
 
 EXPOSE 8888
 
@@ -29,6 +31,17 @@ RUN wget -q   ${PYTHON_TGZ} && \
     make install && \
     cd ..        && \
     rm -rf ${PYTHON_VER}*
+
+# INSTALL SQLITE3
+RUN cd /tmp \
+    && wget -q   ${SQLIT_TGZ} && \
+    && tar -xvzf ${SQLIT_VER}.tar.gz && \
+    cd           ${SQLIT_VER} && \
+    ./configure  && \
+    make         && \
+    make install && \
+    cd ..        && \
+    rm -rf ${SQLIT_VER}
 
 # PIP INSTALL
 RUN pip3 install --trusted-host pypi.org --upgrade pip && \
