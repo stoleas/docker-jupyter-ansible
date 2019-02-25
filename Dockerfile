@@ -32,7 +32,12 @@ RUN wget -q   ${PYTHON_TGZ} && \
 
 # PIP INSTALL
 RUN pip3 install --trusted-host pypi.org --upgrade pip && \
-    pip3 install --trusted-host pypi.org jupyter jupyterthemes ansible-kernel
+    pip3 install --trusted-host \
+        pypi.org \
+        jupyter \
+        jupyterthemes \
+        ansible-kernel \
+        pysqlite2
 
 # SETUP JUPYTER
 RUN jt -t monokai
